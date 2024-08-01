@@ -1,3 +1,7 @@
+This is my opiniated fork of https://github.com/iurimateus/luasnip-latex-snippets.nvim.
+
+Good resource: https://ejmastnak.com/tutorials/vim-latex/luasnip/#advanced-nodes.
+
 # luasnip-latex-snippets
 
 A port of [Gilles Castel's](https://github.com/gillescastel/latex-snippets)
@@ -49,15 +53,20 @@ The following convention, from
 tables and respective files:
 
 ```
-A: Automatic snippet expansion - snippets will activate as soon as their trigger
-matches.
+A: Automatic snippet expansion - snippets will activate as soon as their trigger matches.
 
-w: Word boundary - With this option the snippet trigger will match when the
-trigger is a word boundary character. This is the default behavior.
+w: Word boundary - With this option the snippet trigger will match when the trigger is a word
+boundary character. This is the default behavior.
 
-b: Beginning of line expansion - A snippet with this option is expanded only if
-the trigger is the first word on the line (i.e., only whitespace precedes the
-trigger).
+b: Beginning of line expansion - A snippet with this option is expanded only if the trigger is the
+first word on the line (i.e., only whitespace precedes the trigger).
+
+i:  In-word expansion - By default a snippet is expanded only if the tab trigger is the first word
+on the line or is preceded by one or more whitespace characters. In other words, the snippet can be
+triggered in the middle of a word.
+
+r:  Regular expression - With this option, the tab trigger is expected to be a python regular
+expression. The snippet is expanded if the recently typed characters match the regular expression.
 ```
 
 Note that the _regex_ term used in LuaSnip is misleading: it is not a POSIX
