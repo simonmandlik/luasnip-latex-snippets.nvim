@@ -33,11 +33,35 @@ M.setup = function(opts)
   end
 end
 
+local _snippets = function(is_math, not_math)
+  local snippets = {}
+
+  for _, s in ipairs({
+    "math_i",
+  }) do
+    vim.list_extend(
+      snippets,
+      require(("luasnip-latex-snippets.%s"):format(s)).retrieve(is_math)
+    )
+  end
+
+  for _, s in ipairs({
+      "w",
+  }) do
+    vim.list_extend(
+      snippets,
+      require(("luasnip-latex-snippets.%s"):format(s)).retrieve(not_math)
+    )
+  end
+
+  return snippets
+end
+
 local _autosnippets = function(is_math, not_math)
   local autosnippets = {}
 
   for _, s in ipairs({
-    "math_wRA_no_backslash",
+    "math_wrA_no_backslash",
     "math_rA_no_backslash",
     "math_wA_no_backslash",
     "math_iA_no_backslash",
@@ -70,17 +94,11 @@ M.setup_tex = function(is_math, not_math)
       { trig = "pac", name = "Package" },
       "\\usepackage[${1:options}]{${2:package}}$0"
     ),
-
-    -- ls.parser.parse_snippet({ trig = "nn", name = "Tikz node" }, {
-    --   "$0",
-    --   -- "\\node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};",
-    --   "\\node[$5] (${1}${2}) ${3:at (${4:0,0}) }{$${1}$};",
-    -- }),
   })
 
-  local math_i = require("luasnip-latex-snippets/math_i").retrieve(is_math)
-
-  ls.add_snippets("tex", math_i, { default_priority = 0 })
+  ls.add_snippets("tex", _snippets(is_math, not_math), {
+    default_priority = 0,
+  })
 
   ls.add_snippets("tex", _autosnippets(is_math, not_math), {
     type = "autosnippets",
@@ -96,8 +114,9 @@ M.setup_markdown = function()
   local is_math = utils.with_opts(utils.is_math, true)
   local not_math = utils.with_opts(utils.not_math, true)
 
-  local math_i = require("luasnip-latex-snippets/math_i").retrieve(is_math)
-  ls.add_snippets("markdown", math_i, { default_priority = 0 })
+  ls.add_snippets("markdown", _snippets(is_math, not_math), {
+    default_priority = 0,
+  })
 
   local autosnippets = _autosnippets(is_math, not_math)
   local trigger_of_snip = function(s)
@@ -123,8 +142,14 @@ M.setup_markdown = function()
 
   -- tex delimiters
   local normal_wA_tex = {
-    parse_snippet({ trig = "mk", name = "Math" }, "$${1:${TM_SELECTED_TEXT}}$"),
-    parse_snippet({ trig = "dm", name = "Block Math" }, "$$\n\t${1:${TM_SELECTED_TEXT}}\n.$$"),
+    parse_snippet(
+        { trig = "mM", name = "Inline math mode" },
+        "\\( ${1:${TM_SELECTED_TEXT}} \\)$0"
+    ),
+    parse_snippet(
+        { trig = "Mm", name = "Displayed math mode" },
+        "%\n\\[\n\t${1:${TM_SELECTED_TEXT}}\n\\]\n%\n$0"
+    ),
   }
   vim.list_extend(filtered, normal_wA_tex)
 
