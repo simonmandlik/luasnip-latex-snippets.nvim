@@ -20,7 +20,7 @@ function M.retrieve(is_math)
 
     with_priority({ trig = "hat", name = "hat" }, "\\widehat{$1}$0 "),
     with_priority({ trig = "bar", name = "bar" }, "\\widebar{$1}$0 "),
-    with_priority({ trig = "tilde", name = "tilde" }, "\\widetilde{$1}$0 "),
+    with_priority({ trig = "til", name = "tilde" }, "\\widetilde{$1}$0 "),
     with_priority({ trig = "dot", name = "dot" }, "\\dot{$1}$0 "),
     with_priority({ trig = "und", name = "underline" }, "\\underline{$1}$0 "),
     with_priority({ trig = "ove", name = "overline" }, "\\overline{$1}$0 "),
