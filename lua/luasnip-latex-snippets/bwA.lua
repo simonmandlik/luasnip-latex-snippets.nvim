@@ -95,13 +95,13 @@ function M.retrieve(not_math)
             t { "}", "\\end{figure}", "%", "" }
         }),
         s( { trig = "sfig", name = "Subfigure" }, {
-            t { "\t\\begin{subfigure}{0.5\\textwidth}", "\t\t" },
+            t { "\\begin{subfigure}{0.5\\textwidth}", "\t" },
             i(3),
-            t { "", "\t\t\\caption{" },
+            t { "", "\t\\caption{" },
             i(1),
-            t { "}", "\t\t\\label{fig:" },
+            t { "}", "\t\\label{fig:" },
             i(2),
-            t { "}", "\t\\end{subfigure}", "\t\\hfill", "" }
+            t { "}", "\\end{subfigure}", "\\hfill", "" }
         }),
         s( { trig = "use", name = "Package import" }, {
             t { "\\usepackage{" },
