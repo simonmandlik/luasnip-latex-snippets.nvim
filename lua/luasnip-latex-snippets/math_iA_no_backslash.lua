@@ -18,8 +18,14 @@ function M.retrieve(is_math)
   return {
     parse_snippet({ trig = "sq", name = "\\sqrt{}" }, "\\sqrt{${1:${TM_SELECTED_TEXT}}} $0"),
 
-    with_priority({ trig = "hat", name = "hat" }, "\\hat{$1}$0 "),
-    with_priority({ trig = "bar", name = "bar" }, "\\overline{$1}$0 "),
+    with_priority({ trig = "hat", name = "hat" }, "\\widehat{$1}$0 "),
+    with_priority({ trig = "bar", name = "bar" }, "\\widebar{$1}$0 "),
+    with_priority({ trig = "tilde", name = "tilde" }, "\\widetilde{$1}$0 "),
+    with_priority({ trig = "dot", name = "dot" }, "\\dot{$1}$0 "),
+    with_priority({ trig = "und", name = "underline" }, "\\underline{$1}$0 "),
+    with_priority({ trig = "ove", name = "overline" }, "\\overline{$1}$0 "),
+    with_priority({ trig = "ora", name = "overrightarrow" }, "\\overrightarrow{$1}$0 "),
+    with_priority({ trig = "ola", name = "overleftarrow" }, "\\overleftarrow{$1}$0 "),
 
     parse_snippet({ trig = "inf", name = "\\infty" }, "\\infty"),
     parse_snippet({ trig = "inn", name = "in " }, "\\in "),
