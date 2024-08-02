@@ -64,7 +64,7 @@ function M.retrieve(not_math)
             d(2, get_visual),
             t { "", "\\end{equation}", "%", "" },
         }),
-        s( { trig = "eq*", name = "Equation (starred)" }, {
+        s( { trig = "*eq", name = "Equation (starred)" }, {
             t { "%", "\\begin{equation*}", "\t\\label{eq:" },
             i(1),
             t { "}", "\t" },
