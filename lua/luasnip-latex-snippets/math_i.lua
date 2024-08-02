@@ -28,6 +28,10 @@ function M.retrieve(is_math)
       { trig = "prod", name = "product" },
       "\\prod_{${1}}^{${2:\\infty}} ${3:${TM_SELECTED_TEXT}}$0"
     ),
+    parse_snippet(
+      { trig = "int", name = "integral" },
+      "\\int_{${1:-\\infty}}^{${2:\\infty}} \\! ${4:${TM_SELECTED_TEXT}} \\mathrm{d}${3:x}$0"
+    ),
 
     parse_snippet(
       { trig = "part", name = "d/dx" },
