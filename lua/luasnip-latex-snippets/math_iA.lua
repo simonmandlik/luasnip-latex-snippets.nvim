@@ -42,7 +42,7 @@ function M.retrieve(is_math)
     ),
     s(
       {
-        trig = "(%a+)tilde",
+        trig = "(%a+)til",
         wordTrig = false,
         regTrig = true,
         name = "tilde",
