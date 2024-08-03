@@ -14,6 +14,10 @@ function M.retrieve(not_math)
         condition = condition,
     }) --[[@as function]]
 
+    local parse_snippet = ls.extend_decorator.apply(ls.parser.parse_snippet, {
+        condition = condition
+    }) --[[@as function]]
+
     return {
         s( { trig = "figure", name = "Figure reference" }, {
             i(1, "Figure~"),
@@ -46,21 +50,11 @@ function M.retrieve(not_math)
             t{ "}" }
         }),
 
-        s( { trig = "tit", name = "Italic text" }, {
-            t{ "\\textit{" }, i(1), t{ "}" }
-        }),
-        s( { trig = "tbf", name = "Bold text" }, {
-            t{ "\\textbf{" }, i(1), t{ "}" }
-        }),
-        s( { trig = "tsc", name = "Small-caps text" }, {
-            t{ "\\textsc{" }, i(1), t{ "}" }
-        }),
-        s( { trig = "tsf", name = "Sans-serif text" }, {
-            t{ "\\textsf{" }, i(1), t{ "}" }
-        }),
-        s( { trig = "emp", name = "Emphasized text" }, {
-            t{ "\\emph{" }, i(1), t{ "}" }
-        }),
+        parse_snippet({ trig = "tit", name = "Italic" }, "\\textit{${1:${TM_SELECTED_TEXT}}}$0 "),
+        parse_snippet({ trig = "tbf", name = "Bold" }, "\\textbf{${1:${TM_SELECTED_TEXT}}}$0 "),
+        parse_snippet({ trig = "tsc", name = "Small-caps" }, "\\textsc{${1:${TM_SELECTED_TEXT}}}$0 "),
+        parse_snippet({ trig = "tsf", name = "Sans-serif" }, "\\textsf{${1:${TM_SELECTED_TEXT}}}$0 "),
+        parse_snippet({ trig = "emp", name = "Emphasized" }, "\\emph{${1:${TM_SELECTED_TEXT}}}$0 "),
     }
 end
 
