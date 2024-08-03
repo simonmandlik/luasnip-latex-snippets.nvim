@@ -65,7 +65,6 @@ local _autosnippets = function(is_math, not_math)
     "math_rA_no_backslash",
     "math_wA_no_backslash",
     "math_iA_no_backslash",
-    "math_iA",
     "math_wrA",
   }) do
     vim.list_extend(
