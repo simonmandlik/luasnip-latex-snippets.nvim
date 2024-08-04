@@ -19,33 +19,38 @@ function M.retrieve(not_math)
     }) --[[@as function]]
 
     return {
-        s( { trig = "figure", name = "Figure reference" }, {
+        s({ trig = "figure", name = "Figure reference" }, {
             i(1, "Figure~"),
             t{ "\\ref{fig:" },
             i(2),
             t{ "}" }
         }),
-        s( { trig = "table", name = "Table reference" }, {
+        s({ trig = "table", name = "Table reference" }, {
             i(1, "Table~"),
             t{ "\\ref{tab:" },
             i(2),
             t{ "}" }
         }),
-        s( { trig = "section", name = "Section reference" }, {
+        s({ trig = "section", name = "Section reference" }, {
             i(1, "Section~"),
             t{ "\\ref{sec:" },
             i(2),
             t{ "}" }
         }),
-        s( { trig = "page", name = "Page reference" }, {
+        s({ trig = "page", name = "Page reference" }, {
             i(1, "page~"),
             t{ "\\pageref{" },
             i(2),
             t{ "}" }
         }),
-        s( { trig = "equation", name = "Equation reference" }, {
+        s({ trig = "equation", name = "Equation reference" }, {
             i(1, "Equation~"),
             t{ "\\eqref{eq:" },
+            i(2),
+            t{ "}" }
+        }),
+        s({ trig = "cite", name = "Citation" }, {
+            t{ "\\cite{" },
             i(2),
             t{ "}" }
         }),
