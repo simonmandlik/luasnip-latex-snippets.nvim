@@ -110,7 +110,7 @@ function M.retrieve(not_math)
         s( { trig = "use", name = "Package import" }, {
             t { "\\usepackage{" },
             i(1),
-            t { "}", "" },
+            t { "}" },
         }),
 
         s( { trig = "cha", name = "Chapter" }, {
