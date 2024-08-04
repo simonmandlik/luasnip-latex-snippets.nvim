@@ -88,12 +88,6 @@ end
 
 M.setup_tex = function(is_math, not_math)
   local ls = require("luasnip")
-  ls.add_snippets("tex", {
-    ls.parser.parse_snippet(
-      { trig = "pac", name = "Package" },
-      "\\usepackage[${1:options}]{${2:package}}$0"
-    ),
-  })
 
   ls.add_snippets("tex", _snippets(is_math, not_math), {
     default_priority = 0,
