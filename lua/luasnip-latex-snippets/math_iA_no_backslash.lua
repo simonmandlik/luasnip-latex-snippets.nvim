@@ -226,6 +226,39 @@ function M.retrieve(is_math)
     parse_snippet({ trig = ">=", name = "geq" }, "\\ge "),
     parse_snippet({ trig = "invs", name = "inverse" }, "^{-1}"),
     parse_snippet({ trig = "~~", name = "~" }, "\\sim "),
+
+    parse_snippet(
+      { trig = "lr)", name = "left( right)" },
+      "\\left( ${1:${TM_SELECTED_TEXT}} \\right)$0"
+    ),
+    parse_snippet(
+      { trig = "lr|", name = "L1 norm" },
+      "\\lvert ${1:${TM_SELECTED_TEXT}} \\rvert$0"
+    ),
+    parse_snippet(
+      { trig = "lr||", name = "L2 norm" },
+      "\\lVert ${1:${TM_SELECTED_TEXT}} \\rVert$0"
+    ),
+    parse_snippet(
+      { trig = "lr}", name = "left{ right}" },
+      "\\left\\{ ${1:${TM_SELECTED_TEXT}} \\right\\\\}$0"
+    ),
+    parse_snippet(
+      { trig = "lr]", name = "left[ right]" },
+      "\\left[ ${1:${TM_SELECTED_TEXT}} \\right]$0"
+    ),
+    parse_snippet(
+      { trig = "lr>", name = "leftangle rightangle" },
+      "\\left< ${1:${TM_SELECTED_TEXT}} \\right>$0"
+    ),
+    parse_snippet(
+      { trig = "lrf", name = "left floor right floor" },
+      "\\left\\lfloor ${1:${TM_SELECTED_TEXT}} \\right\\rfloor$0"
+    ),
+    parse_snippet(
+      { trig = "lrc", name = "left ceil right ceil" },
+      "\\left\\lceil ${1:${TM_SELECTED_TEXT}} \\right\\rceil$0"
+    ),
   }
 end
 
