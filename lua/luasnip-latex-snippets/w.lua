@@ -38,7 +38,7 @@ function M.retrieve(not_math)
             t{ "}" }
         }),
         s( { trig = "page", name = "Page reference" }, {
-            i(1, "Page~"),
+            i(1, "page~"),
             t{ "\\pageref{" },
             i(2),
             t{ "}" }
