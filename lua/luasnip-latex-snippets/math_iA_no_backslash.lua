@@ -176,7 +176,7 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "->", name = "to", priority = 100 }, "\\to "),
     parse_snippet({ trig = "-->", name = "long to", priority = 200 }, "\\longrightarrow "),
 
-    parse_snippet({ trig = "tt", name = "text" }, "\\text{${1:${TM_SELECTED_TEXT}}}$0"),
+    parse_snippet({ trig = "tx", name = "text" }, "\\text{${1:${TM_SELECTED_TEXT}}}$0"),
     parse_snippet({ trig = "mcal", name = "mathcal" }, "\\mathcal{${1:${TM_SELECTED_TEXT}}}$0"),
     parse_snippet({ trig = "mbb", name = "mathbb" }, "\\mathbb{${1:${TM_SELECTED_TEXT}}}$0"),
     parse_snippet({ trig = "msc", name = "mathscr" }, "\\mathscr{${1:${TM_SELECTED_TEXT}}}$0"),

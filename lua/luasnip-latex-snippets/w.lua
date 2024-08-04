@@ -54,6 +54,7 @@ function M.retrieve(not_math)
         parse_snippet({ trig = "tbf", name = "Bold" }, "\\textbf{${1:${TM_SELECTED_TEXT}}}$0 "),
         parse_snippet({ trig = "tsc", name = "Small-caps" }, "\\textsc{${1:${TM_SELECTED_TEXT}}}$0 "),
         parse_snippet({ trig = "tsf", name = "Sans-serif" }, "\\textsf{${1:${TM_SELECTED_TEXT}}}$0 "),
+        parse_snippet({ trig = "ttt", name = "Monospaced" }, "\\texttt{${1:${TM_SELECTED_TEXT}}}$0 "),
         parse_snippet({ trig = "emp", name = "Emphasized" }, "\\emph{${1:${TM_SELECTED_TEXT}}}$0 "),
     }
 end
