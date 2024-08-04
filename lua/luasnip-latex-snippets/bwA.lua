@@ -48,13 +48,17 @@ function M.retrieve(not_math)
             t { "", "\\end{description}", "%", "" },
         }),
         s( { trig = "ali", name = "Align" }, {
-            t { "%", "\\begin{align}", "\t" },
-            d(1, get_visual),
+            t { "%", "\\begin{align}", "\t\\label{eq:" },
+            i(1),
+            t { "}", "\t" },
+            d(2, get_visual),
             t { "", "\\end{align}", "%", "" },
         }),
         s( { trig = "*ali", name = "Align (starred)" }, {
-            t { "%", "\\begin{align*}", "\t" },
-            d(1, get_visual),
+            t { "%", "\\begin{align*}", "\t\\label{eq:" },
+            i(1),
+            t { "}", "\t" },
+            d(2, get_visual),
             t { "", "\\end{align*}", "%", "" },
         }),
         s( { trig = "eq", name = "Equation" }, {
