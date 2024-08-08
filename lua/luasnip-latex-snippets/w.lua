@@ -51,7 +51,7 @@ function M.retrieve(not_math)
         }),
         s({ trig = "cite", name = "Citation" }, {
             t{ "\\cite{" },
-            i(2),
+            i(1),
             t{ "}" }
         }),
 
