@@ -185,7 +185,7 @@ function M.retrieve(is_math)
 
     parse_snippet({ trig = "letw", name = "let omega" }, "Let $\\Omega \\subset \\C$ be open."),
     parse_snippet({ trig = "nnn", name = "bigcap" }, "\\bigcap_{${1:i \\in ${2: I}}}$0"),
-    parse_snippet({ trig = "norm", name = "norm" }, "\\|$1\\|$0"),
+    parse_snippet({ trig = "uuu", name = "bigcup" }, "\\bigcup_{${1:i \\in ${2: I}}}$0"),
     parse_snippet({ trig = "<>", name = "hokje" }, "\\diamond "),
     parse_snippet({ trig = ">>", name = ">>" }, "\\gg"),
     parse_snippet({ trig = "<<", name = "<<" }, "\\ll"),
@@ -209,7 +209,6 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "||", name = "mid" }, " \\mid "),
     parse_snippet({ trig = "Nn", name = "cap" }, "\\cap "),
     parse_snippet({ trig = "bmat", name = "bmat" }, "\\begin{bmatrix} $1 \\end{bmatrix}$0"),
-    parse_snippet({ trig = "uuu", name = "bigcup" }, "\\bigcup_{${1:i \\in ${2: I}}}$0"),
     parse_snippet({ trig = "DD", name = "D" }, "\\mathbb{D}"),
     parse_snippet({ trig = "HH", name = "H" }, "\\mathbb{H}"),
     parse_snippet({ trig = "lll", name = "l" }, "\\ell"),
@@ -236,7 +235,7 @@ function M.retrieve(is_math)
       "\\lvert ${1:${TM_SELECTED_TEXT}} \\rvert$0"
     ),
     parse_snippet(
-      { trig = "lr||", name = "L2 norm" },
+      { trig = "lrn", name = "L2 norm" },
       "\\lVert ${1:${TM_SELECTED_TEXT}} \\rVert$0"
     ),
     parse_snippet(
