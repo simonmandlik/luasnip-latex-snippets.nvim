@@ -234,11 +234,11 @@ function M.retrieve(is_math)
     ),
     parse_snippet(
       { trig = "lr|", name = "L1 norm" },
-      "\\lvert ${1:${TM_SELECTED_TEXT}} \\rvert$0"
+      "\\left\\lvert ${1:${TM_SELECTED_TEXT}} \\right\\rvert$0"
     ),
     parse_snippet(
       { trig = "lrn", name = "L2 norm" },
-      "\\lVert ${1:${TM_SELECTED_TEXT}} \\rVert$0"
+      "\\left\\lVert ${1:${TM_SELECTED_TEXT}} \\right\\rVert$0"
     ),
     parse_snippet(
       { trig = "lr}", name = "left{ right}" },
