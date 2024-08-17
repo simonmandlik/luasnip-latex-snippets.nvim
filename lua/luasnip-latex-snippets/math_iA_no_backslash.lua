@@ -30,9 +30,12 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "inn", name = "in " }, "\\in"),
     parse_snippet({ trig = "SI", name = "SI" }, "\\SI{$1}{$2}"),
 
-    with_priority({ trig = "hat", name = "hat" }, "\\widehat{${1:${TM_SELECTED_TEXT}}}$0"),
-    with_priority({ trig = "bar", name = "bar" }, "\\widebar{${1:${TM_SELECTED_TEXT}}}$0"),
-    with_priority({ trig = "til", name = "tilde" }, "\\widetilde{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "hat", name = "hat" }, "\\hat{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "what", name = "hat" }, "\\widehat{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "bar", name = "bar" }, "\\bar{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "wbar", name = "bar" }, "\\widebar{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "til", name = "tilde" }, "\\tilde{${1:${TM_SELECTED_TEXT}}}$0"),
+    with_priority({ trig = "wtil", name = "tilde" }, "\\widetilde{${1:${TM_SELECTED_TEXT}}}$0"),
     with_priority({ trig = "dot", name = "dot" }, "\\dot{${1:${TM_SELECTED_TEXT}}}$0"),
     with_priority({ trig = "und", name = "underline" }, "\\underline{${1:${TM_SELECTED_TEXT}}}$0"),
     with_priority({ trig = "ove", name = "overline" }, "\\overline{${1:${TM_SELECTED_TEXT}}}$0"),
@@ -42,6 +45,18 @@ function M.retrieve(is_math)
     s(
       {
         trig = "(%a+)bar",
+        wordTrig = false,
+        regTrig = true,
+        name = "bar",
+        priority = 100,
+      },
+      f(function(_, snip)
+        return string.format("\\bar{%s}", snip.captures[1])
+      end, {})
+    ),
+    s(
+      {
+        trig = "(%a+)wbar",
         wordTrig = false,
         regTrig = true,
         name = "bar",
@@ -60,12 +75,36 @@ function M.retrieve(is_math)
         priority = 100,
       },
       f(function(_, snip)
+        return string.format("\\hat{%s}", snip.captures[1])
+      end, {})
+    ),
+    s(
+      {
+        trig = "(%a+)what",
+        wordTrig = false,
+        regTrig = true,
+        name = "hat",
+        priority = 100,
+      },
+      f(function(_, snip)
         return string.format("\\widehat{%s}", snip.captures[1])
       end, {})
     ),
     s(
       {
         trig = "(%a+)til",
+        wordTrig = false,
+        regTrig = true,
+        name = "tilde",
+        priority = 100,
+      },
+      f(function(_, snip)
+        return string.format("\\tilde{%s}", snip.captures[1])
+      end, {})
+    ),
+    s(
+      {
+        trig = "(%a+)wtil",
         wordTrig = false,
         regTrig = true,
         name = "tilde",
