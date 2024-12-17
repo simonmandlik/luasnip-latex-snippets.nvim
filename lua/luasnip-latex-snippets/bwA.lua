@@ -90,16 +90,16 @@ function M.retrieve(not_math)
         s({ trig = "fig", name = "Figure" }, {
             t { "%", "\\begin{figure}[" },
             i(1, "htpb!H"),
-            t { "]", "\t\\centering", "\t" },
+            t { "]", "\t\\centering", "\t\\includegraphics[width=\\linewidth]{" },
             i(4),
-            t { "", "\t\\caption{" },
+            t { "}", "\t\\caption{" },
             i(2),
             t { "}", "\t\\label{fig:" },
             i(3),
             t { "}", "\\end{figure}", "%", "" }
         }),
         s({ trig = "sfig", name = "Subfigure" }, {
-            t { "\\begin{subfigure}{0.5\\textwidth}", "\t" },
+            t { "\\begin{subfigure}{0.5\\linewidth}", "\t" },
             i(3),
             t { "", "\t\\caption{" },
             i(1),
