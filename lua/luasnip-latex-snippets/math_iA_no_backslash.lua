@@ -250,6 +250,7 @@ function M.retrieve(is_math)
     parse_snippet({ trig = "||", name = "mid" }, " \\mid"),
     parse_snippet({ trig = "Nn", name = "cap" }, "\\cap"),
     parse_snippet({ trig = "bmat", name = "bmat" }, "\\begin{bmatrix} $1 \\end{bmatrix}$0"),
+    parse_snippet({ trig = "case", name = "cases" }, "\\begin{cases} $1 \\end{cases}$0"),
     parse_snippet({ trig = "DD", name = "D" }, "\\mathbb{D}"),
     parse_snippet({ trig = "HH", name = "H" }, "\\mathbb{H}"),
     parse_snippet({ trig = "lll", name = "l" }, "\\ell"),
